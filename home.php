@@ -50,6 +50,7 @@
                         <option value="">Moderado</option>
                         <option value="">Avanzado</option>
                     </select>
+                    <input type="submit" value="Conocer" style="display: block; margin: auto;">
                 </form>
             </div>
             <div class="aside-portfolio">
