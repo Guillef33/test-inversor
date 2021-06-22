@@ -44,14 +44,17 @@
             </div>
             <div class="checkbox-riesgo">
                 <h3>Perfil de Riesgo</h3>
-                <form action="">
+                    <div class="slidecontainer">
+                        <input type="range" min="1" max="100" value="50" class="slider" id="myRange">
+                    </div>
+            <!--    <form action="">
                     <select name="" id="">
                         <option value="">Principiante</option>
                         <option value="">Moderado</option>
                         <option value="">Avanzado</option>
                     </select>
                     <input type="submit" value="Conocer" style="display: block; margin: auto;">
-                </form>
+                </form> -->
             </div>
             <div class="aside-portfolio">
                 <h3>Portafolio de activos a invertir</h3>
