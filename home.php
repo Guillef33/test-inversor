@@ -42,6 +42,7 @@
                     </select>
                 </div>
             </div>
+            <!--  
             <div class="checkbox-riesgo">
                 <h3>Perfil de Riesgo</h3>
                     <div class="slidecontainer">
@@ -54,7 +55,15 @@
                         <option value="">Avanzado</option>
                     </select>
                     <input type="submit" value="Conocer" style="display: block; margin: auto;">
+<<<<<<< HEAD
                 </form> -->
+=======
+                </form>
+            </div>-->
+            <div class="checkbox-riesgo">
+                <h3>Perfil de Riesgo</h3>
+                <input type="range" min="1" max="100" value="50" class="slider" id="myRange">
+>>>>>>> 73ba192fcc4e7ce12ca975b5eda36397ed5db3b4
             </div>
             <div class="aside-portfolio">
                 <h3>Portafolio de activos a invertir</h3>
