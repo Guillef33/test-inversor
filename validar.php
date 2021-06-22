@@ -6,9 +6,9 @@ $contrasena = $_POST['contrasena'];
 session_start();
 $_SESSION['usuario']= $usuario;
 
-$conexion = mysqli_connect('localhost', 'root', '', 'login');
+$conexion = mysqli_connect('localhost', 'root', '', 'inversor_guille');
 
-$consulta="SELECT*FROM login where usuario='$usuario' and contrasena='$contrasena'";
+$consulta="SELECT * FROM login where usuario='$usuario' and contrasena='$contrasena'";
 $resultado = mysqli_query($conexion,$consulta);
 
 $filas=mysqli_num_rows($resultado);
