@@ -11,6 +11,9 @@
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
 
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js" defer></script>
+    <script src="inversion.js" defer></script>
+
 
 </head>
 <body>
@@ -31,7 +34,7 @@
             <div class="inversion-inputs">
                 <div class="inversion">
                     <label for="inversion-inicial">Inversion inicial </label><br>
-                    <input type="text"><br>
+                    <input type="number" class="inversion-inicial" onchange="inversion()"><br>
                 </div>
 
                 <div class="depositos">
@@ -56,7 +59,12 @@
             </div>-->
             <div class="checkbox-riesgo">
                 <h3>Perfil de Riesgo</h3>
-                <input type="range" min="1" max="100" value="50" class="slider" id="myRange">
+                <select name="riesgo" class="riesgo" id="" onchange="inversion()">
+                    <option value="principiante">Principiante</option>
+                    <option value="moderado">Moderado</option>
+                    <option value="arriesgado">Arriesgado</option>
+                </select>
+                <!-- <input type="range" min="1" max="100" value="50" class="slider" id="myRange"> -->
             </div>
             <div class="aside-portfolio">
                 <h3>Portafolio de activos a invertir</h3>
