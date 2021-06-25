@@ -7,8 +7,7 @@ function inversion(){
 		"data":{riesgo:riesgo,inversionInicial:inversionInicial},
 		"dataType":"json",
 		"type":"get",
-		success:function(data){
-			
+		success:function(data){	
 		}
 	});
 }
