@@ -53,7 +53,7 @@
                 <input type="range" min="1" max="100" value="50" class="slider" id="myRange">
 
                 <select name="riesgo" class="riesgo" id="" onchange="inversion()">
-                    <option value="principiante">Principiante</option>
+                    <option value="bajo">Bajo</option>
                     <option value="moderado">Moderado</option>
                     <option value="arriesgado">Arriesgado</option>
                 </select>
