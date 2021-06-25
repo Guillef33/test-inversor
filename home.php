@@ -45,46 +45,30 @@
                     </select>
                 </div>
             </div>
-            <!--  
+        </div>
+
             <div class="checkbox-riesgo">
                 <h3>Perfil de Riesgo</h3>
-                    <div class="slidecontainer">
-                        <input type="range" min="1" max="100" value="50" class="slider" id="myRange">
-                    </div>
-            <!--    <form action="">
-                    <select name="" id="">
-                        <option value="">Principiante</option>
-                        <option value="">Moderado</option>
-                        <option value="">Avanzado</option>
-                    </select>
-                    <input type="submit" value="Conocer" style="display: block; margin: auto;">
-<<<<<<< HEAD
-                </form> -->
-=======
-                </form>
-            </div>-->
-            <div class="checkbox-riesgo">
-                <h3>Perfil de Riesgo</h3>
-<<<<<<< HEAD
+
                 <input type="range" min="1" max="100" value="50" class="slider" id="myRange">
->>>>>>> 73ba192fcc4e7ce12ca975b5eda36397ed5db3b4
-=======
+
                 <select name="riesgo" class="riesgo" id="" onchange="inversion()">
                     <option value="principiante">Principiante</option>
                     <option value="moderado">Moderado</option>
                     <option value="arriesgado">Arriesgado</option>
                 </select>
                 <!-- <input type="range" min="1" max="100" value="50" class="slider" id="myRange"> -->
->>>>>>> 7c5aeb92cc20cd5fb5f7712a29737280d15d8f4b
             </div>
             <div class="aside-portfolio">
                 <h3>Portafolio de activos a invertir</h3>
-                <a href="#" class="btn-aside"><i class="fas fa-chart-line"></i>Tecnologia Inovadora</a>
-                <select name="" id="" class="btn-aside">Otros Portafolios
-                    <option value="">Empresas Argentinas</option>
-                    <option value="">Empresas USA</option>
-                    <option value="">Criptomonedas</option>
-                </select>
+                <div class="aside-portfolio-buttons">
+                    <a href="#" class="btn-aside"><i class="fas fa-chart-line"></i>Tecnologia Inovadora</a>
+                    <select name="" id="" class="btn-aside">Otros Portafolios
+                        <option value="">Empresas Argentinas</option>
+                        <option value="">Empresas USA</option>
+                        <option value="">Criptomonedas</option>
+                    </select>
+                </div>
 
                 <p class="aside-info-tooltip">Informacion del Portafolio<p>
 
