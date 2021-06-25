@@ -1,6 +1,6 @@
 <?php
 
-$conexion = mysqli_connect('localhost', 'root', '', 'login');
+$conexion = mysqli_connect('localhost', 'root', '', 'inveror_guille');
 
 
 
