@@ -12,36 +12,46 @@ if ($riesgo == "bajo"){
     // 25 % DE LA INVERSION INICIAL EN ACTIVOS RIESGO MODERADO
     // 10 % DE LA INVERSION INICIAL EN ACTIVOS RIESGO ARRIESGADO
 
-    // Primero hay que traer de la base de datos los activos de riesgo bajo
-    $queryBajo = $link->prepare("SELECT * FROM activos WHERE risk  = 'bajo'  ORDER BY performance DESC");
-    $queryBajo->execute(); 
-    $resBajo = $queryBajo->fetchAll();
-
-    $cantidadFilasResBajo = count($resBajo);
-
-    $inversionBajo = $inversionInicial * 0.65;
-    $inversionModerado = $inversionInicial * 0.30;
-    $inversionArriesgado = $inversionInicial * 0.05;
-
-    foreach ($resBajo as $key => $value) {
-        $resBajo[$key]["monto"] = $inversionBajo / $cantidadFilasResBajo;
-    }
-   // var_dump($cantidadFilasResBajo);
-   // var_dump($inversionBajo);
-   // var_dump($resBajo);
-
         // Primero hay que traer de la base de datos los activos de riesgo bajo
+        $queryBajo = $link->prepare("SELECT * FROM activos WHERE risk  = 'bajo'  ORDER BY performance DESC");
+        $queryBajo->execute(); 
+        $resBajo = $queryBajo->fetchAll();
+
+        $cantidadFilasResBajo = count($resBajo);
+
+        $inversionBajo = $inversionInicial * 0.65;
+        $inversionModerado = $inversionInicial * 0.30;
+        $inversionArriesgado = $inversionInicial * 0.05;
+
+        foreach ($resBajo as $key => $value) {
+            $resBajo[$key]["monto"] = $inversionBajo / $cantidadFilasResBajo;
+        }
+    // var_dump($cantidadFilasResBajo);
+    // var_dump($inversionBajo);
+    // var_dump($resBajo);
+
+        // Riesgo Moderado
         $queryModerado = $link->prepare("SELECT * FROM activos WHERE risk  = 'moderado'  ORDER BY performance DESC");
         $queryModerado->execute(); 
         $resModerado = $queryModerado->fetchAll();
     
         $cantidadFilasResModerado = count($resModerado);
-    
+   
         foreach ($resModerado as $key => $value) {
             $resModerado[$key]["monto"] = $inversionModerado / $cantidadFilasResModerado;
         }
 
-        var_dump($resModerado);
+        // Riesgo Alto
+        $queryArriesgado = $link->prepare("SELECT * FROM activos WHERE risk  = 'arriesgado'  ORDER BY performance DESC");
+        $queryArriesgado->execute(); 
+        $resArriesgado = $queryArriesgado->fetchAll();
+    
+        $cantidadFilasResModerado = count($resArriesgado);
+    
+        foreach ($resArriesgado as $key => $value) {
+            $resArriesgado[$key]["monto"] = $inversionArriesgado / $cantidadFilasResModerado;
+        }
+
 
 
     
@@ -66,10 +76,95 @@ else if($riesgo == "moderado"){
     // 50 % DE LA INVERSION INICIAL EN ACTIVOS RIESGO MODERADO
     // 20 % DE LA INVERSION INICIAL EN ACTIVOS RIESGO ARRIESGADO
 
+      // Primero hay que traer de la base de datos los activos de riesgo bajo
+      $queryBajo = $link->prepare("SELECT * FROM activos WHERE risk  = 'bajo'  ORDER BY performance DESC");
+      $queryBajo->execute(); 
+      $resBajo = $queryBajo->fetchAll();
+
+      $cantidadFilasResBajo = count($resBajo);
+
+      $inversionBajo = $inversionInicial * 0.30;
+      $inversionModerado = $inversionInicial * 0.50;
+      $inversionArriesgado = $inversionInicial * 0.20;
+
+      foreach ($resBajo as $key => $value) {
+          $resBajo[$key]["monto"] = $inversionBajo / $cantidadFilasResBajo;
+      }
+  // var_dump($cantidadFilasResBajo);
+  // var_dump($inversionBajo);
+  // var_dump($resBajo);
+
+      // Riesgo Moderado
+      $queryModerado = $link->prepare("SELECT * FROM activos WHERE risk  = 'moderado'  ORDER BY performance DESC");
+      $queryModerado->execute(); 
+      $resModerado = $queryModerado->fetchAll();
+  
+      $cantidadFilasResModerado = count($resModerado);
+ 
+      foreach ($resModerado as $key => $value) {
+          $resModerado[$key]["monto"] = $inversionModerado / $cantidadFilasResModerado;
+      }
+
+      // Riesgo Alto
+      $queryArriesgado = $link->prepare("SELECT * FROM activos WHERE risk  = 'arriesgado'  ORDER BY performance DESC");
+      $queryArriesgado->execute(); 
+      $resArriesgado = $queryArriesgado->fetchAll();
+  
+      $cantidadFilasResModerado = count($resArriesgado);
+  
+      foreach ($resArriesgado as $key => $value) {
+          $resArriesgado[$key]["monto"] = $inversionArriesgado / $cantidadFilasResModerado;
+      }
+
+
+
 }
 else if($riesgo == "arriesgado"){
     // 10 % DE LA INVERSION INICIAL EN ACTIVOS RIESGO BAJO
     // 40 % DE LA INVERSION INICIAL EN ACTIVOS RIESGO MODERADO
     // 50 % DE LA INVERSION INICIAL EN ACTIVOS RIESGO ARRIESGADO
+
+     // Primero hay que traer de la base de datos los activos de riesgo bajo
+     $queryBajo = $link->prepare("SELECT * FROM activos WHERE risk  = 'bajo'  ORDER BY performance DESC");
+     $queryBajo->execute(); 
+     $resBajo = $queryBajo->fetchAll();
+
+     $cantidadFilasResBajo = count($resBajo);
+
+     $inversionBajo = $inversionInicial * 0.10;
+     $inversionModerado = $inversionInicial * 0.40;
+     $inversionArriesgado = $inversionInicial * 0.50;
+
+     foreach ($resBajo as $key => $value) {
+         $resBajo[$key]["monto"] = $inversionBajo / $cantidadFilasResBajo;
+     }
+ // var_dump($cantidadFilasResBajo);
+ // var_dump($inversionBajo);
+ // var_dump($resBajo);
+
+     // Riesgo Moderado
+     $queryModerado = $link->prepare("SELECT * FROM activos WHERE risk  = 'moderado'  ORDER BY performance DESC");
+     $queryModerado->execute(); 
+     $resModerado = $queryModerado->fetchAll();
+ 
+     $cantidadFilasResModerado = count($resModerado);
+
+     foreach ($resModerado as $key => $value) {
+         $resModerado[$key]["monto"] = $inversionModerado / $cantidadFilasResModerado;
+     }
+
+     // Riesgo Alto
+     $queryArriesgado = $link->prepare("SELECT * FROM activos WHERE risk  = 'arriesgado'  ORDER BY performance DESC");
+     $queryArriesgado->execute(); 
+     $resArriesgado = $queryArriesgado->fetchAll();
+ 
+     $cantidadFilasResModerado = count($resArriesgado);
+ 
+     foreach ($resArriesgado as $key => $value) {
+         $resArriesgado[$key]["monto"] = $inversionArriesgado / $cantidadFilasResModerado;
+     }
+
+
+
 }
  ?>
