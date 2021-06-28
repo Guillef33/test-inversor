@@ -1,4 +1,7 @@
 <?php 
+$data["bajo"] = "";
+$data["moderado"] = "";
+$data["arriesgado"] = "";
 
 
 // Variables y Propiedades
@@ -50,15 +53,17 @@ if ($riesgo == "bajo"){
         $queryArriesgado->execute(); 
         $resArriesgado = $queryArriesgado->fetchAll();
     
-        $cantidadFilasResModerado = count($resArriesgado);
+        $cantidadFilasResArriesgado = count($resArriesgado);
     
         foreach ($resArriesgado as $key => $value) {
-            $resArriesgado[$key]["monto"] = $inversionArriesgado / $cantidadFilasResModerado;
+            $resArriesgado[$key]["monto"] = $inversionArriesgado / $cantidadFilasResArriesgado;
         }
+        $data["bajo"] = $resBajo;
+        $data["moderado"] =$resModerado;
+        $data["arriesgado"] = $resArriesgado;
 
 
-
-    
+  
 
 
     /*
@@ -114,12 +119,14 @@ else if($riesgo == "moderado"){
       $queryArriesgado->execute(); 
       $resArriesgado = $queryArriesgado->fetchAll();
   
-      $cantidadFilasResModerado = count($resArriesgado);
+      $cantidadFilasResArriesgado = count($resArriesgado);
   
       foreach ($resArriesgado as $key => $value) {
-          $resArriesgado[$key]["monto"] = $inversionArriesgado / $cantidadFilasResModerado;
+          $resArriesgado[$key]["monto"] = $inversionArriesgado / $cantidadFilasResArriesgado;
       }
-
+      $data["bajo"] = $resBajo;
+      $data["moderado"] =$resModerado;
+      $data["arriesgado"] = $resArriesgado;
 
 
 }
@@ -142,6 +149,16 @@ else if($riesgo == "arriesgado"){
      foreach ($resBajo as $key => $value) {
          $resBajo[$key]["monto"] = $inversionBajo / $cantidadFilasResBajo;
      }
+     foreach ($resBajo as $key => $value) {
+        $data["bajo"] .= '<tr>
+            <td><img src="./img/programatic1.png" alt="" style="border-radius: 50%; width: 100px;" ></td>
+            <td> '. $value['name'].'</td>
+            <td> '. $value['type'].'</td>
+            <td> '. $value['performance'].'</td>
+            <td> '. $value['risk'].'</td>
+            <td> '.$value['monto'].' </td>
+        </tr>';
+     }
  // var_dump($cantidadFilasResBajo);
  // var_dump($inversionBajo);
  // var_dump($resBajo);
@@ -156,19 +173,45 @@ else if($riesgo == "arriesgado"){
      foreach ($resModerado as $key => $value) {
          $resModerado[$key]["monto"] = $inversionModerado / $cantidadFilasResModerado;
      }
+     foreach ($resModerado as $key => $value) {
+        $data["moderado"] .= '<tr>
+            <td><img src="./img/programatic1.png" alt="" style="border-radius: 50%; width: 100px;" ></td>
+            <td> '. $value['name'].'</td>
+            <td> '. $value['type'].'</td>
+            <td> '. $value['performance'].'</td>
+            <td> '. $value['risk'].'</td>
+            <td> '.$value['monto'].' </td>
+        </tr>';
+     }
 
      // Riesgo Alto
      $queryArriesgado = $link->prepare("SELECT * FROM activos WHERE risk  = 'arriesgado'  ORDER BY performance DESC");
      $queryArriesgado->execute(); 
      $resArriesgado = $queryArriesgado->fetchAll();
  
-     $cantidadFilasResModerado = count($resArriesgado);
+     $cantidadFilasResArriesgado = count($resArriesgado);
  
      foreach ($resArriesgado as $key => $value) {
-         $resArriesgado[$key]["monto"] = $inversionArriesgado / $cantidadFilasResModerado;
+         $resArriesgado[$key]["monto"] = $inversionArriesgado / $cantidadFilasResArriesgado;
      }
-
-
-
+     foreach ($resArriesgado as $key => $value) {
+        $data["arriesgado"] .= '<tr>
+            <td><img src="./img/programatic1.png" alt="" style="border-radius: 50%; width: 100px;" ></td>
+            <td> '. $value['name'].'</td>
+            <td> '. $value['type'].'</td>
+            <td> '. $value['performance'].'</td>
+            <td> '. $value['risk'].'</td>
+            <td> '.$value['monto'].' </td>
+        </tr>';
+     }
 }
+echo json_encode($data);
+
+/* := concatenar y asignar , esto hace que guarde el string de dicha vriable y le pegue algo nuevo adelante. */
+$string = "hola";
+$string .= "que tal";
+//resultado : holaque tal
+$string = "hola";
+$string = "que tal";
+//resultado : que tal
  ?>

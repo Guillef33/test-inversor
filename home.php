@@ -115,12 +115,18 @@
 
                 <?php 
 
-                include 'ajaxInversion.php';
-
-                $empresas = "SELECT * FROM inversor_guille";
-                $d->$pdo->query($empresas); 
-
-                // $conn = mysqli_connect('localhost', 'root', '', 'inversor_guille')
+                //include 'ajaxInversion.php';
+                // Primero generamos la conexion con la base de datos. 
+                $link = new PDO ("mysql:host=localhost;dbname=inversor_guille","root","");
+                //Segundo : creo una variable (guardara la sentencia preparada+pdo) utilizamnos la variable link y usamos el metodo prepare(pdo) para preparar la sentencia SQL
+                $sql = $link->prepare("SELECT * FROM activos");
+                //tercero : ejecutamos la sentecia
+                $sql->execute();
+                //cuarto : utilizamos fetch o fetchall para traer cada fila en un array multidimensional o simple.
+                $empresas = $sql->fetchAll();
+                // $conn = mysqli_connect('localhost', 'root', '', 'inversor_guille') 
+                ?>
+                
 
                 <table class="detalles-table">
                     <thead>                    
@@ -134,39 +140,41 @@
                             <td>Rendimiento</td>
                         </tr>
                     </thead>
+                                   
                     <tbody>
-                        <tr>
-                            <td><img src="./img/programatic1.png" alt="" style="border-radius: 50%; width: 100px;" ></td> //<?php echo $empresas['id_img']; ?>
-                            <td><?php echo $empresas['name']; ?></td>
-                            <td><?php echo $empresas['type']; ?></td>
-                            <td><?php echo $empresas['performance']; ?></td>
-                            <td><?php echo $empresas['risk']; ?></td>
-                        </tr>
-                        <tr>
-                        <td><img src="./img/programatic1.png" alt="" style="border-radius: 50%; width: 100px;" ></td> //<?php echo $empresas['id_img']; ?>
-                            <td><?php echo $empresas['name']; ?></td>
-                            <td><?php echo $empresas['type']; ?></td>
-                            <td><?php echo $empresas['performance']; ?></td>
-                            <td><?php echo $empresas['risk']; ?></td>
-                        </tr>
-                        <tr>
-                        <td><img src="./img/programatic1.png" alt="" style="border-radius: 50%; width: 100px;" ></td> //<?php echo $empresas['id_img']; ?>
-                            <td><?php echo $empresas['name']; ?></td>
-                            <td><?php echo $empresas['type']; ?></td>
-                            <td><?php echo $empresas['performance']; ?></td>
-                            <td><?php echo $empresas['risk']; ?></td>
-                        </tr>
-                        <tr>
-                        <td><img src="./img/programatic1.png" alt="" style="border-radius: 50%; width: 100px;" ></td> //<?php echo $empresas['id_img']; ?>
-                            <td><?php echo $empresas['name']; ?></td>
-                            <td><?php echo $empresas['type']; ?></td>
-                            <td><?php echo $empresas['performance']; ?></td>
-                            <td><?php echo $empresas['risk']; ?></td>
-                        </tr>
+
+
+
+
+
+                        <?php
+                        /*foreach ($empresas as $key => $value):*/
+                        ?>
+                        <!--  <tr>
+                            <td><img src="./img/programatic1.png" alt="" style="border-radius: 50%; width: 100px;" ></td> <?php // echo $value['id_img']; ?>
+                            <td>//<?php // echo $value['name']; ?></td>
+                            <td><?php// echo $value['type']; ?></td>
+                            <td><?php // echo $value['performance']; ?></td>
+                            <td><?//php echo $value['risk']; ?></td>
+                        </tr>-->
+                        <?php /* endforeach;*/?>
+                        
+                        <!-- <?php/*
+                        foreach ($empresas as $key => $value){
+                        echo "<tr>
+                            <td><img src="./img/programatic1.png" alt="" style="border-radius: 50%; width: 100px;" ></td>  $empresas['id_img'] 
+                            <td> $empresas['name'] </td>
+                            <td> $empresas['type'] </td>
+                            <td> $empresas['performance'] </td>
+                            <td> $empresas['risk'] </td>
+                        </tr>";
+                        }?*/> -->
+                       
+
                     </tbody>
 
 
-                    ?>
+                
                 </table>
             </div>
             <div>
