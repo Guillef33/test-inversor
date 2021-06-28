@@ -1,7 +1,11 @@
 <?php 
 
 
+// Variables y Propiedades
+
+
 $link = new PDO ("mysql:host=localhost;dbname=inversor_guille","root","");
+
 
 
 $riesgo = $_GET["riesgo"];

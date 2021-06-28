@@ -112,51 +112,61 @@
         <div class="detalles-wrapper" >
             <div>
                 <h3>11 activos que componen tu portafolio</h3>
+
+                <?php 
+
+                include 'ajaxInversion.php';
+
+                $empresas = "SELECT * FROM inversor_guille";
+                $d->$pdo->query($empresas); 
+
+                // $conn = mysqli_connect('localhost', 'root', '', 'inversor_guille')
+
                 <table class="detalles-table">
                     <thead>                    
                         <tr>
+                            <td>Logo</td>
                             <td>Empresa</td>
-                            <td>Nombre</td>
-                            <td>% Portfolio</td>
-                            <td>Cantidad</td>
+                            <td>Sector</td>
+                            <td>Rendimiento</td>
+                            <td>Tipo</td>
                             <td>Precio</td>
                             <td>Rendimiento</td>
                         </tr>
                     </thead>
                     <tbody>
                         <tr>
-                            <td><img src="./img/programatic1.png" alt="" style="border-radius: 50%; width: 100px;"></td>
-                            <td>Apple</td>
-                            <td>5.6%</td>
-                            <td>100 acciones</td>
-                            <td>$14.5</td>
-                            <td>1.5%</td>
+                            <td><img src="./img/programatic1.png" alt="" style="border-radius: 50%; width: 100px;" ></td> //<?php echo $empresas['id_img']; ?>
+                            <td><?php echo $empresas['name']; ?></td>
+                            <td><?php echo $empresas['type']; ?></td>
+                            <td><?php echo $empresas['performance']; ?></td>
+                            <td><?php echo $empresas['risk']; ?></td>
                         </tr>
                         <tr>
-                            <td><img src="./img/gold.jpg" alt="" style="border-radius: 50%; width: 100px;"></td>
-                            <td>Apple</td>
-                            <td>5.6%</td>
-                            <td>100 acciones</td>
-                            <td>$14.5</td>
-                            <td>1.5%</td>
+                        <td><img src="./img/programatic1.png" alt="" style="border-radius: 50%; width: 100px;" ></td> //<?php echo $empresas['id_img']; ?>
+                            <td><?php echo $empresas['name']; ?></td>
+                            <td><?php echo $empresas['type']; ?></td>
+                            <td><?php echo $empresas['performance']; ?></td>
+                            <td><?php echo $empresas['risk']; ?></td>
                         </tr>
                         <tr>
-                            <td><img src="./img/risk-150x150.jpg" alt="" style="border-radius: 50%; width: 100px;"></td>
-                            <td>Apple</td>
-                            <td>5.6%</td>
-                            <td>100 acciones</td>
-                            <td>$14.5</td>
-                            <td>1.5%</td>
+                        <td><img src="./img/programatic1.png" alt="" style="border-radius: 50%; width: 100px;" ></td> //<?php echo $empresas['id_img']; ?>
+                            <td><?php echo $empresas['name']; ?></td>
+                            <td><?php echo $empresas['type']; ?></td>
+                            <td><?php echo $empresas['performance']; ?></td>
+                            <td><?php echo $empresas['risk']; ?></td>
                         </tr>
                         <tr>
-                            <td><img src="./img/inversor.jpg" alt="" style="border-radius: 50%; width: 100px;"></td>
-                            <td>Apple</td>
-                            <td>5.6%</td>
-                            <td>100 acciones</td>
-                            <td>$14.5</td>
-                            <td>1.5%</td>
+                        <td><img src="./img/programatic1.png" alt="" style="border-radius: 50%; width: 100px;" ></td> //<?php echo $empresas['id_img']; ?>
+                            <td><?php echo $empresas['name']; ?></td>
+                            <td><?php echo $empresas['type']; ?></td>
+                            <td><?php echo $empresas['performance']; ?></td>
+                            <td><?php echo $empresas['risk']; ?></td>
                         </tr>
                     </tbody>
+
+
+                    ?>
                 </table>
             </div>
             <div>
